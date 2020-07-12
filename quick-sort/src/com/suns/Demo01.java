@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author 见贤不思齐
- * @time 2018/11/9.
+ * @date 2018/11/9.
  * @desc 快速排序
  */
 public class Demo01 {
