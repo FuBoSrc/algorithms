@@ -17,18 +17,19 @@ public class SystemUtil {
      * @return 输入的数据
      */
     public static String scanner(String tip) {
-        Scanner scanner = new Scanner(System.in);
-        StringBuilder help = new StringBuilder();
-        help.append("请输入")
-                .append(tip)
-                .append(":");
-        System.out.println(help);
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
-            if (StringUtils.isNoneBlank(ipt)) {
-                return ipt;
+        try (Scanner scanner = new Scanner(System.in)) {
+            StringBuilder help = new StringBuilder();
+            help.append("请输入")
+                    .append(tip)
+                    .append(":");
+            System.out.println(help);
+            if (scanner.hasNext()) {
+                String ipt = scanner.next();
+                if (StringUtils.isNoneBlank(ipt)) {
+                    return ipt;
+                }
             }
+            throw new RuntimeException("请输入正确的" + tip + "!");
         }
-        throw new RuntimeException("请输入正确的" + tip + "!");
     }
 }
